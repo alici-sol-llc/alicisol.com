@@ -8,12 +8,18 @@
     <meta name="keywords" content="Singer, Music, Biography, Discography">
     <title>Alici</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: #f8f9fa;
             margin: 0;
             padding: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         header {
@@ -42,7 +48,7 @@
         }
 
         main {
-            padding: 10px 10px;
+            padding: 10px;
             max-width: 800px;
             margin: auto;
             background: #ffffff;
@@ -51,42 +57,59 @@
 
         h1 {
             color: #ffffff;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin: 10px 0;
         }
 
-        h2,
+        h2 {
+            color: #2a4d69;
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+        }
+
         h3 {
             color: #2a4d69;
+            font-size: clamp(1.1rem, 3.5vw, 1.25rem);
+        }
+
+        p,
+        li {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
 
         iframe {
             display: block;
             border-style: none;
+            max-width: 100%;
         }
 
         footer {
             text-align: center;
-            padding: 5px 10px;
+            padding: 10px;
             background: #2a4d69;
             color: #ffffff;
             position: relative;
             bottom: 0;
             width: 100%;
+            box-sizing: border-box;
         }
 
         img {
-            float: left;
-            margin-right: 10px;
-            margin-bottom: 5px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px auto;
         }
 
         .tab-container {
             display: flex;
             background-color: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .tab-button {
             flex: 1;
-            padding: 10px 15px;
+            padding: 12px 15px;
             text-align: center;
             cursor: pointer;
             border: none;
@@ -94,6 +117,7 @@
             color: #333;
             font-weight: bold;
             transition: background-color 0.3s ease;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
         }
 
         .tab-button.active {
@@ -102,7 +126,7 @@
         }
 
         .tab-content {
-            padding: 20px;
+            padding: 15px;
             display: none;
             background-color: #fff;
         }
@@ -111,24 +135,136 @@
             display: block;
         }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
         td {
             text-align: left;
             vertical-align: top;
+            padding: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        /* Responsive iframe container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 20px auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .embed-container {
+            max-width: 100%;
+            margin: 20px auto;
+        }
+
+        .embed-container iframe {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        /* Image with text wrapper for better mobile layout */
+        .content-with-image {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .content-with-image img {
+            margin: 0 auto;
+        }
+
+        /* Tablet adjustments */
+        @media (max-width: 768px) {
+            main {
+                padding: 15px;
+            }
+
+            .tab-content {
+                padding: 15px 10px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                margin-top: 10px;
+            }
         }
 
         /* Mobile-friendly adjustments */
         @media (max-width: 480px) {
+            body {
+                font-size: 16px;
+                /* Prevents zoom on iOS */
+            }
+
+            main {
+                padding: 10px;
+                box-shadow: none;
+            }
+
             .tab-container {
                 flex-direction: column;
             }
 
             .tab-button {
-                padding: 10px;
+                padding: 12px 10px;
                 border-bottom: 1px solid #ccc;
+                font-size: 1rem;
             }
 
             .tab-button:last-child {
                 border-bottom: none;
+            }
+
+            .tab-content {
+                padding: 15px 10px;
+            }
+
+            nav {
+                padding: 8px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+                font-size: 0.85rem;
+            }
+
+            ul {
+                padding-left: 15px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            hr {
+                margin: 15px auto;
+            }
+
+            footer {
+                font-size: 0.85rem;
+                padding: 8px;
             }
         }
     </style>
@@ -150,17 +286,26 @@
     <main>
 
         <div id="about" class="tab-content active">
-            <p><img src="images/2025-05-16.Alici.Sol.San.Diego.CA.USA.001.jpg" alt="Alici Sol" width="160"
-                    height="240">Alici (Alice V. de M. Sol) (born 28 January 1999) is a Brazilian-American singer,
-                songwriter, and
-                performer. Representing the cultural tapestry of Belo Horizonte, Brazil, Alici is a New York-based
-                musician on a mission to join her birth country's serene sounds with the city's gritty energy.</p>
-            <p>She draws from her diverse upbringing split between Brazil, Seattle, and the UK to redefine the idea of
-                what Bossa Nova and Trip Hop sounds like to a contemporary audience. Inspired by timeless acts such as
-                Gal Costa, J Dilla, Sade, and Portishead, Alici stands as a beacon of creativity, passion, and
-                innovation, breathing new life into Brazilian-inspired R&B and jazz.</p>
-            <p>In 2021, she received a Bachelor of Music in Songwriting from the <a href="https://www.berklee.edu/"
-                    target=_blank>Berklee College of Music</a> in Boston, MA.</p>
+            <div class="content-with-image">
+                <img src="images/2025-05-16.Alici.Sol.San.Diego.CA.USA.001.jpg" alt="Alici Sol"
+                    style="max-width: 300px;">
+                <div>
+                    <p>Alici (Alice V. de M. Sol) (born 28 January 1999) is a Brazilian-American singer,
+                        songwriter, and performer. Representing the cultural tapestry of Belo Horizonte, Brazil, Alici
+                        is a New York-based
+                        musician on a mission to join her birth country's serene sounds with the city's gritty energy.
+                    </p>
+                    <p>She draws from her diverse upbringing split between Brazil, Seattle, and the UK to redefine the
+                        idea of
+                        what Bossa Nova and Trip Hop sounds like to a contemporary audience. Inspired by timeless acts
+                        such as
+                        Gal Costa, J Dilla, Sade, and Portishead, Alici stands as a beacon of creativity, passion, and
+                        innovation, breathing new life into Brazilian-inspired R&B and jazz.</p>
+                    <p>In 2021, she received a Bachelor of Music in Songwriting from the <a
+                            href="https://www.berklee.edu/" target=_blank>Berklee College of Music</a> in Boston, MA.
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div id="music" class="tab-content">
@@ -192,54 +337,44 @@
             </ul>
 
             <hr width="90%" />
-            <div align="center" style="margin: 20px;">
+            <div class="embed-container">
                 <iframe id='AmazonMusicEmbedB0013CPFPY'
                     src='https://music.amazon.com/embed/B0013CPFPY/?id=I5MbSjKEl6&marketplaceId=ATVPDKIKX0DER&musicTerritory=US'
-                    width='100%' height='152px' frameBorder='0' style='border-radius:20px;max-width:'>
+                    height='152' frameBorder='0'>
                 </iframe>
             </div>
             <hr width="90%" />
-            <div align="center" style="margin: 20px;">
-                <iframe id="spotify-player" style="border-radius:12px"
-                    src="https://open.spotify.com/embed/artist/3xwrVmAg320G7DzTPkhOjX" width="100%" height="152"
-                    frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            <div class="embed-container">
+                <iframe id="spotify-player" src="https://open.spotify.com/embed/artist/3xwrVmAg320G7DzTPkhOjX"
+                    height="152" frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
                 </iframe>
             </div>
             <hr width="90%" />
-            <div align="center" style="margin: 20px;">
-                <iframe id="ytplayer" type="text/html" width="720" height="405"
-                    src="https://www.youtube.com/embed/t4DGFeUppPU?autoplay=1" frameborder="0" allowfullscreen>
+            <div class="video-container">
+                <iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/t4DGFeUppPU?autoplay=1"
+                    frameborder="0" allowfullscreen>
                 </iframe>
             </div>
         </div>
 
         <div id="shows" class="tab-content">
-            <table>
-                <tr>
-                    <td>
-                        <h2>Upcoming</h2>
-                        <ul>
-                            <li>Upcoming concerts via <a
-                                    href="https://www.ticketmaster.com/alici-tickets/artist/2857160"
-                                    target=_blank>ticketmaster</a></li>
-                            <li><b>Apr 26, 2026</b> - <a href="https://www.bricklanejazzfestival.com/alici" target=_blank>Brick Lane Jazz Festival</a>, London, UK</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><img src="images/2025-05-16.Alici.Sol.San.Diego.CA.USA.002.jpg" alt="Alici Sol" width="480"
-                                height="360">
-                    </td>
-                </tr>
-            </table>
+            <h2>Upcoming</h2>
+            <ul>
+                <li>Upcoming concerts via <a href="https://www.ticketmaster.com/alici-tickets/artist/2857160"
+                        target=_blank>ticketmaster</a></li>
+                <li><b>Apr 26, 2026</b> - <a href="https://www.bricklanejazzfestival.com/alici" target=_blank>Brick Lane
+                        Jazz Festival</a>, London, UK</li>
+            </ul>
+
+            <img src="images/2025-05-16.Alici.Sol.San.Diego.CA.USA.002.jpg" alt="Alici Sol" style="max-width: 600px;">
 
             <hr width="90%" />
 
             <h2>Tour History</h2>
             <h3>2025</h3>
             <ul>
-                <li><b>Apr 18, 2025</b> - Crescent Ballroom, Phoenix, AZ  (with Hope Tala)</li>
+                <li><b>Apr 18, 2025</b> - Crescent Ballroom, Phoenix, AZ (with Hope Tala)</li>
                 <li><b>Apr 16, 2025</b> - Music Box SD, San Diego, CA (with Hope Tala)</li>
                 <li><b>Apr 11, 2025</b> - The Independent, San Frascisco, CA (with Hope Tala)</li>
                 <li><b>Apr 09, 2025</b> - Neumos, Seattle, WA (with Hope Tala)</li>
@@ -271,37 +406,25 @@
         </div>
 
         <div id="content" class="tab-content">
-            <table>
-                <tr>
-                    <td>
-                        <h2>Social</h2>
-                        <ul>
-                            <li><b>Instagram</b>: <a href="https://www.instagram.com/alici.sol/"
-                                    target=_blank>alici.sol</a></li>
-                            <li><b>TikTok</b>: <a href="https://www.tiktok.com/@alici.sol" target=_blank>alici.sol</a>
-                            </li>
-                            <li><b>YouTube</b>: <a href="https://www.youtube.com/channel/UCSR1jcgVChjtU4eDuxgw3nQ"
-                                    target=_blank>alici</a> channel</li>
-                        </ul>
-                        <h2>Articles</h2>
-                        <ul>
-                            <li><b>Homme Girls</b>: December/2023 - <a
-                                    href="https://www.hommegirls.com/blogs/the-hg-edit/hg-takes-on-ald" target=_blank>HG
-                                    Takes on
-                                    ALD</a></li>
-                            <li><b>Les Filles</b>: December/2023 - <a href="https://lesfilles.cc/talent/alici-sol/"
-                                    target=_blank>Alici Sol</a></li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p><img src="images/2025-05-16.Alici.Sol.San.Diego.CA.USA.003.jpg" alt="Alici Sol" width="320"
-                                height="480">
+            <h2>Social</h2>
+            <ul>
+                <li><b>Instagram</b>: <a href="https://www.instagram.com/alici.sol/" target=_blank>alici.sol</a></li>
+                <li><b>TikTok</b>: <a href="https://www.tiktok.com/@alici.sol" target=_blank>alici.sol</a>
+                </li>
+                <li><b>YouTube</b>: <a href="https://www.youtube.com/channel/UCSR1jcgVChjtU4eDuxgw3nQ"
+                        target=_blank>alici</a> channel</li>
+            </ul>
+            <h2>Articles</h2>
+            <ul>
+                <li><b>Homme Girls</b>: December/2023 - <a
+                        href="https://www.hommegirls.com/blogs/the-hg-edit/hg-takes-on-ald" target=_blank>HG
+                        Takes on
+                        ALD</a></li>
+                <li><b>Les Filles</b>: December/2023 - <a href="https://lesfilles.cc/talent/alici-sol/"
+                        target=_blank>Alici Sol</a></li>
+            </ul>
 
-                    </td>
-                </tr>
-            </table>
+            <img src="images/2025-05-16.Alici.Sol.San.Diego.CA.USA.003.jpg" alt="Alici Sol" style="max-width: 400px;">
         </div>
 
     </main>
