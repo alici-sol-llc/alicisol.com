@@ -63,6 +63,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -71,12 +72,12 @@
     </style>
     <script>
         // Random redirect to one of the four sections
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             const pages = ['about.htm'];
             const randomPage = pages[Math.floor(Math.random() * pages.length)];
 
             // Redirect after a short delay for visual effect
-            setTimeout(function() {
+            setTimeout(function () {
                 window.location.href = randomPage;
             }, 1500);
         });
@@ -91,4 +92,3 @@
 </body>
 
 </html>
-
