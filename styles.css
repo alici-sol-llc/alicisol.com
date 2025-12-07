@@ -38,6 +38,10 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 header h1 {
@@ -66,11 +70,7 @@ nav {
     margin: 0;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* JavaScript will set this dynamically */
-body.header-measured nav {
-    margin-top: var(--header-height);
+    margin-top: 100px;
 }
 
 nav a {
